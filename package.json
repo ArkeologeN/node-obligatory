@@ -1,0 +1,30 @@
+{
+  "name": "obligatory",
+  "version": "0.1.0",
+  "description": "Obligatory parameters that are required in REST API body. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArkeologeN/node-obligatory.git"
+  },
+  "keywords": [
+    "obligatory",
+    "rest",
+    "api",
+    "wrapper",
+    "plugin"
+  ],
+  "author": "Hamza Waqas <hamzawaqas.programmer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArkeologeN/node-obligatory/issues"
+  },
+  "homepage": "https://github.com/ArkeologeN/node-obligatory",
+  "dependencies": {
+    "klass": "~1.4.0",
+    "lodash": "~2.4.1"
+  }
+}
