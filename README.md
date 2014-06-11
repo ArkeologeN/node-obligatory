@@ -38,7 +38,7 @@ Obligatory validates the given collection with the mandatory properties:
       // _err.message contains "Missing Parameter(s): email, password"
     }
   });
-});
+})();
 ```
 
 The module is perfect if you're writing REST API and sick of missing parameters sent by mobile devices.
