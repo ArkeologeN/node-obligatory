@@ -16,7 +16,7 @@ var klass = require('klass')
                 , i;
 
             for(i in parameters){
-                if(typeof(this[parameters[i]]) != "object"){
+                if(!_.isObject(this[parameters[i]])){
                     this._params[parameters[i]] = this[parameters[i]];
                     delete this[parameters[i]];
                 }
