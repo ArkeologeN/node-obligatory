@@ -8,9 +8,12 @@ var klass = require('klass')
     })
     .methods({
         setCollection: function(collection) {
-
+            
+            if ( !collection )
+                throw Error("collection is empty or missing!");
+            
             var parameters = Object.getOwnPropertyNames(this)
-                ,col = collection.length, i;
+                , i;
 
             for(i in parameters){
                 if(typeof(this[parameters[i]]) != "object"){
@@ -18,31 +21,26 @@ var klass = require('klass')
                     delete this[parameters[i]];
                 }
             }
-
-            if(typeof col !== "undefined") {
-                this._collection = JSON.parse(collection);
-            } else {
-                this._collection = collection;
-            }
+            
+            this._collection = _.isString(collection) ? JSON.parse(collection) : collection;
         },
 
         validate: function(){
             var params  = this._params
-               ,missingParams = []
+               , missingParams = []
                 , property = "";
 
             for(property in params) {
-                if( params[property] != false && (_.isEmpty(this._collection[property]) || _.isUndefined(this._collection[property]))) {
+                if( params[property] != false && (_.isUndefined(this._collection[property]))) {
                     missingParams.push(property);
                 }
             }
 
 
-            if(missingParams.length > 0){
+            if( missingParams.length > 0) 
                 throw Error("Missing Parameter(s): " + missingParams);
-            } else {
-                return true;
-            }
+                
+            return true;
         },
 
         reset: function() {
