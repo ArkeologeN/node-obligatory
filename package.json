@@ -1,6 +1,6 @@
 {
   "name": "obligatory",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Obligatory parameters that are required in REST API body. ",
   "main": "index.js",
   "scripts": {
