@@ -15,17 +15,15 @@ var klass = require('klass')
     	},
         setCollection: function(collection) {
         	
-        	var self = this;
-            
             if ( !collection )
                 throw Error("[collection] is empty or missing!");
             
             Object.getOwnPropertyNames(this).forEach(function(parameter) {
-            	if (typeof self[parameter] !== 'object' && parameter != '_flag') {
+            	if (typeof this[parameter] !== 'object' && parameter != '_flag') {
             		// Not an object. Set as param.
-            		self._params[parameter] = self[parameter];
+            		this._params[parameter] = this[parameter];
             	}
-            });
+            }.bind(this));
              
             this._collection = (typeof collection == 'string') ? JSON.parse(collection) : collection;
         },
