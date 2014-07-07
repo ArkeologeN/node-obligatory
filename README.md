@@ -41,7 +41,36 @@ Obligatory validates the given collection with the mandatory properties:
 })();
 ```
 
-The module is perfect if you're writing REST API and sick of missing parameters sent by mobile devices.
+If you don't want the code to throw the exception and want to catch missing fields, try this:
+
+```javascript
+	var validator = obligatory.newFactoryInstance();
+    
+    validator.email = true;
+    validator.password = true;
+    validator.setCollection(req.body);
+    validator.validate(function(missing) {
+    	if (missing.length > 0) {
+    		// Parameters are missing..
+    		
+    	} else {
+	    	db.find({
+	        email: req.body.email, password: req.body.password}, function(err, user) {
+	          // Do something here now.. All is okay.
+	    	});
+    	}
+    });
+```
+
+Optionally, you can put `flag` for strict mode to see if you just want existence of key or value as well.
+
+```javascript
+validator.setFlag(obligatoty.FLAG_MIXED);
+// OR
+validator.setFlag(obligatory.FLAG_STRICT);
+```
+
+Obligatory helps to define clean pattern to validate your REST API body parameters.
 
 ## Contribution.
 Module is under maintainence by [Hamza Waqas](http://twitter.com/HamzaWaqas) but you can also create issues or send a pull-request! That's how all works :-)
