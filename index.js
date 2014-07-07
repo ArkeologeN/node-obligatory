@@ -1,5 +1,4 @@
 var klass = require('klass')
-    , _ = require('lodash')
     , obligator = klass({
         initialize: function() {
             this._params = {};

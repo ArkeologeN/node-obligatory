@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/ArkeologeN/node-obligatory",
   "dependencies": {
-    "klass": "~1.4.0",
-    "lodash": "~2.4.1"
+    "klass": "~1.4.0"
   }
 }
