@@ -62,8 +62,11 @@ var klass = require('klass')
 	        	
 	        	throw Error("Missing Parameter(s): " + missingParams);
         	}
-        	
-            return fn([]);
+
+            if (typeof fn == 'function')
+                return fn([]);
+            else
+                return true;
         },
 
         reset: function() {
