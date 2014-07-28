@@ -53,6 +53,7 @@ var klass = require('klass')
         			missingParams.push(param);
         		}
         	}
+
         	
         	if (missingParams.length > 0) {
         		if (typeof fn == 'function') {
@@ -62,7 +63,7 @@ var klass = require('klass')
 	        	throw Error("Missing Parameter(s): " + missingParams);
         	}
         	
-            return true;
+            return fn([]);
         },
 
         reset: function() {
