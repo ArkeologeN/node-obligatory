@@ -48,7 +48,7 @@ var klass = require('klass')
         	}
         	function strictValidate(param) {
         		if (this.getParam(param) === true 
-        			&& (this._collection[param] === 'undefined'
+        			&& ( typeof this._collection[param] === 'undefined'
         			|| this._collection[param] == '')) {
         			missingParams.push(param);
         		}
